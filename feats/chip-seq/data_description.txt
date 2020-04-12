@@ -1,0 +1,3 @@
+Data retrieved from NCBI GEO database (GSE72532), data processed and contributed by Malysheva V, Mendoza-Parra MA, Ashick M, Saleem M, Gronemeyer H.
+Reference:
+Malysheva V, Mendoza-Parra MA, Saleem MA, Gronemeyer H. Reconstruction of gene regulatory networks reveals chromatin remodelers and key transcription factors in tumorigenesis. Genome Med 2016 May 19;8(1):57. PMID: 27198694

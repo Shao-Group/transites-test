@@ -1,0 +1,4 @@
+# extract coverage with bedtools
+# ./feats/cov.sh
+bedtools genomecov -bga -strand + -ibam ../data/SRR307903.star.sort.bam  > genome.plus.cov
+bedtools genomecov -bga -strand - -ibam ../data/SRR307903.star.sort.bam  > genome.minus.cov
