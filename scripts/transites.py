@@ -43,8 +43,11 @@ def label_extraction():
         pickle.dump([tss_locs_plus_strd, tes_locs_plus_strd, tss_locs_minus_strd, tes_locs_minus_strd], labels_file)
     return tss_locs_plus_strd, tes_locs_plus_strd, tss_locs_minus_strd, tes_locs_minus_strd
 
-def cov_extraction(sites):
-    cov_file = '../feats/'
+
+def feat_extraction(sites, bin_size=50):
+    def coverage():
+        cov = pd.read_csv('../feats/coverage/genome.bga.coverage', sep='\t', header=None, names=['chr', 'loc', 'cov'])
+    pass
 
 
 def sites_read():
@@ -68,6 +71,7 @@ def sites_read():
                     sites.append([int(fields[0]), int(fields[2]), strds[i], suspected_labels[i]])
     sites = pd.DataFrame(sites)
     sites.columns = ['chr', 'loc', 'strand', 'TSS/TES']
+    sites.sort_values(by=['chr', 'loc'])
     with open('../processed_data/sites.pkl', 'wb') as sites_file:
         pickle.dump(sites, sites_file)
     return sites
@@ -83,6 +87,7 @@ def sites_read():
 if __name__ == "__main__":
     tss_plus, tes_plus, tss_minus, tes_minus = label_extraction()
     sites = sites_read()
+    feats = feat_extraction(sites)
 
 
 
