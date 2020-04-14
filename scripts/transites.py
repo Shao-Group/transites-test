@@ -28,7 +28,7 @@ def label_extraction():
             if not line.startswith('#'):
                 fields = line.strip().split('\t')
                 # if it's a coding transcript from curated havana database, and on autosomes
-                if fields[2] == 'transcript' and ('havana' in fields[1]) and ('transcript_biotype "protein_coding"' in fields[-1]) and fields[0].isnumeric():
+                if fields[2] == 'transcript' and ('havana' in fields[1]) and ('transcript_biotype \"protein_coding\"' in fields[-1]) and fields[0].isnumeric():
                     # TODO: save extracted lines in a table
                     # depends on the strand, TSS/TES are reversed
                     if fields[6] == '+':
@@ -38,7 +38,7 @@ def label_extraction():
                         tss_locs_minus_strd.append((fields[0], int(fields[4])))
                         tes_locs_minus_strd.append((fields[0], int(fields[3])))
                     else:
-                        print(Warning, strand information wrong, line)
+                        print("Warning, strand information wrong", line)
     with open('../processed_data/tss.tes.plu.minus.labels.pkl', 'wb') as labels_file:
         pickle.dump([tss_locs_plus_strd, tes_locs_plus_strd, tss_locs_minus_strd, tes_locs_minus_strd], labels_file)
     return tss_locs_plus_strd, tes_locs_plus_strd, tss_locs_minus_strd, tes_locs_minus_strd
@@ -80,7 +80,7 @@ def sites_read():
 #     def feat_cov(self):
 
 
-if __name__ == __main__:
+if __name__ == "__main__":
     tss_plus, tes_plus, tss_minus, tes_minus = label_extraction()
     sites = sites_read()
 
