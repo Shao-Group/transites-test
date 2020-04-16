@@ -1,5 +1,7 @@
-# coverage files
-feats/coverage/genome.*
+feats/*
+data/*
 
 # itermediate data
 processed_data/*
+
+
